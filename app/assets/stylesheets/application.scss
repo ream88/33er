@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'Texas LED';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/assets/Texas LED-Regular.ttf') format('truetype');
+}
+
+@import 'bourbon/_bourbon';
+
+
+$dark: #333333;
+$yellow: #96a824;
+$orange: #e6691e;
+$background: #eeeeee;
+
+@mixin leds {
+  @include border-radius(10px);
+  @include box-shadow(inset 0 0 20px shade(#222222, 80%));
+  
+  background-color: $dark;
+  background-image: url('px_by_Gre3g.png');
+  color: tint($yellow, 20%);
+  font-family: 'Texas LED';
+  overflow: hidden;   
+  padding: 0.2em 0.2em 0 0.2em;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 5px tint($yellow, 20%);
+  white-space: nowrap;
+  border-bottom: 1px solid tint($background, 30%);
+  border-top: 1px solid shade($background, 30%);
+}
+
+body {
+  background-color: $background;
+  background-image: url('bright_squares.png');
+  margin: 1.5em 0.5em;
+  padding: 0px;
+  
+  nav {
+    @include leds;
+    
+    font-size: 3em;
+    margin: 0px;
+  }
+  
+  section {    
+    @include border-radius(10px);
+    
+    background-color: $orange;
+    border-bottom: 1px solid shade($orange, 30%);
+    border-top: 1px solid tint($orange, 30%);
+    border: 1px solid $orange;
+    margin: 1em 0em;
+    padding: 1em 3em;
+    
+    #from, #to {
+      font-family: Helvetica;
+      font-weight: bold;
+      text-align: center;
+      color: $background;
+      text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
+    }
+    
+    #from {
+      padding: 0 0 1em 0;
+    }
+    
+    #to {
+      padding: 1em 0 0 0;
+    }
+    
+    
+    #minutes {
+      @include leds;
+      
+      border-bottom: 1px solid tint($orange, 30%);
+      border-top: 1px solid shade($orange, 30%);
+      font-size: 8em;
+      text-align: center;
+    }
+  }
+  
+  
+}
